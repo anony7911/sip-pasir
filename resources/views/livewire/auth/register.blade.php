@@ -1,6 +1,3 @@
-@extends('layouts.auth')
-
-@section('content')
 @section('title', 'Register')
 <div>
     <!-- Nested Row within Card Body -->
@@ -42,17 +39,15 @@
                             <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-user btn-block">
+                    <a href="login.html" class="btn btn-primary btn-user btn-block">
                         Register Account
-                    </button>
+                    </a>
                 </form>
                 <hr>
                 <div class="text-center">
-                    <a class="small" href="/login">Already have an account? Login!</a>
+                    <a class="small" href="login.html">Already have an account? Login!</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-@endsection
