@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth; // Import the Auth facade
 
 class LoginController extends Controller
 {
@@ -26,7 +27,16 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public function redirectTo()
+    {
+        if (Auth::user()->role == 'pelanggan') { // Use the Auth facade to access the user's role
+            return '/';
+        } elseif (Auth::user()->role == 'admin') { // Use the Auth facade to access the user's role
+            return '/home';
+        } else {
+            return '/home'; // Add a default return statement for other roles
+        }
+    }
 
     /**
      * Create a new controller instance.

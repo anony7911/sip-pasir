@@ -25,4 +25,18 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function getGeolocation(Request $request)
+    {
+        // Get latitude and longitude from the request
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+
+        // Handle the geolocation data (you can store it, process it, etc.)
+        // Example: Log the geolocation
+        \Log::info("User's Geolocation - Latitude: $latitude, Longitude: $longitude");
+
+        // Return the geolocation data as JSON
+        return response()->json(['latitude' => $latitude, 'longitude' => $longitude]);
+    }
 }
